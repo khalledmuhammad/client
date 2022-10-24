@@ -8,7 +8,7 @@ function AdminLayout({ children }) {
     <Layout>
       <AdminNav />
       <Layout>
-        <Content>{children}</Content>
+        <Content  style={{padding:"25px"}} >{children}</Content>
       </Layout>
     </Layout>
   );
