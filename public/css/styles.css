@@ -7,3 +7,12 @@
     flex: auto;
     min-height: 100vh;
 }
+
+.ProseMirror:nth-child(1){
+  display: none;
+}
+.ProseMirror{
+  padding: 15px 25px;
+  height: 700px;
+  overflow: scroll;
+}
