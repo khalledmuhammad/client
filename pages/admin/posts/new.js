@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { Layout, Row, Col, Input, Select, Modal, Button } from "antd";
+import { Layout, Row, Col, Input, Select, Modal, Button, Image } from "antd";
 import AdminLayout from "../../../components/layout/AdminLayout";
 import Editor from "rich-markdown-editor";
 import { ThemeContext } from "../../../context/theme";
@@ -9,6 +9,8 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { UploadOutlined } from "@ant-design/icons";
 import Media from "../../../components/media";
+import { MediaContext } from "../../../context/media";
+
 
 const { Option } = Select;
 const { Content, Sider } = Layout;
@@ -31,6 +33,8 @@ function NewPost() {
   };
   // context
   const [theme, setTheme] = useContext(ThemeContext);
+  const [media, setMedia] = useContext(MediaContext);
+
   // state
   const [title, setTitle] = useState(savedTitle());
   const [content, setContent] = useState(savedContent());
@@ -39,7 +43,7 @@ function NewPost() {
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   // media Modal
-  const [visibleMedia, setVisibleMedia] = useState(false);
+  //const [visibleMedia, setVisibleMedia] = useState(false);
   // hook
   const router = useRouter();
 
@@ -63,6 +67,8 @@ function NewPost() {
         title,
         content,
         categories,
+        featuredImage: media?.selected?._id,
+
       });
       if (data?.error) {
         toast.error(data?.error);
@@ -72,6 +78,7 @@ function NewPost() {
         toast.success("Post created successfully");
         localStorage.removeItem("post-title");
         localStorage.removeItem("post-content");
+        setMedia({ ...media, selected: "" });
         router.push("/admin/posts");
       }
     } catch (err) {
@@ -126,9 +133,9 @@ function NewPost() {
             Preview
           </Button>
 
-          <Button
+              <Button
             style={{ margin: "10px 0px 10px 0px", width: "100%" }}
-            onClick={() => setVisibleMedia(true)}
+            onClick={() => setMedia({ ...media, showMediaModal: true })}
           >
             <UploadOutlined /> Featured Image
           </Button>
@@ -146,6 +153,11 @@ function NewPost() {
               <Option key={item.name}>{item.name}</Option>
             ))}
           </Select>
+          {media?.selected && (
+            <div style={{ marginTop: "15px" }}>
+              <Image width="100%" src={media?.selected?.url} />
+            </div>
+          )}
 
           <Button
             loading={loading}
@@ -175,10 +187,10 @@ function NewPost() {
         </Modal>
         {/* media modal */}
         <Modal
-          visible={visibleMedia}
+          visible={media.showMediaModal}
           title="Media"
-          onOk={() => setVisibleMedia(false)}
-          onCancel={() => setVisibleMedia(false)}
+          onOk={() => setMedia({ ...media, showMediaModal: false })}
+          onCancel={() => setMedia({ ...media, showMediaModal: false })}
           width={720}
           footer={null}
         >

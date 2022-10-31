@@ -16,3 +16,6 @@
   height: 700px;
   overflow: scroll;
 }
+.ant-upload-list-item-card-actions {
+  display: none;
+}

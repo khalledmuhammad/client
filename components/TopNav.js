@@ -3,6 +3,7 @@ import { Menu } from "antd";
 import {
   MailOutlined,
   AppstoreOutlined,
+  DatabaseOutlined,
   SettingOutlined,
   UserAddOutlined,
   UserOutlined,
@@ -57,9 +58,15 @@ const TopNav = () => {
       mode="horizontal"
       theme="dark"
     >
-      <Menu.Item key="mail" icon={<MailOutlined />}>
+      <Menu.Item key="mail" icon={<AppstoreOutlined />}>
         <Link href="/">
           <a>CMS</a>
+        </Link>
+      </Menu.Item>
+
+      <Menu.Item key="posts" icon={<DatabaseOutlined />}>
+        <Link href="/posts">
+          <a>Posts</a>
         </Link>
       </Menu.Item>
 
