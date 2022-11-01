@@ -27,6 +27,7 @@ export const SinglePost = ({ post }) => {
               <img
                 src={post?.featuredImage?.url || "/images/default.jpeg"}
                 alt={post.title}
+                
               />
             }
           >
