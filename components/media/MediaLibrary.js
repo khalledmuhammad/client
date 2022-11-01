@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/auth";
 import { CloseCircleOutlined, InboxOutlined } from "@ant-design/icons";
 import { MediaContext } from "../../context/media";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const { Dragger } = Upload;
 
@@ -62,6 +63,7 @@ const MediaLibrary = () => {
           images: media.images.filter((image) => image._id !== imageId),
           selected: null,
         });
+        toast.error("Image deleted successfully");
       }
     } catch (err) {
       console.log(err);

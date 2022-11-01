@@ -5,9 +5,12 @@ import Link from "next/link";
 import { PlusOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { PostContext } from "../../../context/post";
+import { useRouter } from "next/router";
+
 
 function Posts() {
   const [post, setPost] = useContext(PostContext);
+  const router = useRouter()
 
   const { posts } = post;
 
@@ -25,12 +28,23 @@ function Posts() {
   };
 
   const handleEdit = async (post) => {
-    console.log("EDIT POST", post);
+   router.push(`/admin/posts/${post.slug}`)
   };
 
   const handleDelete = async (post) => {
-    console.log("DELETE POST", post);
-  };
+    try {
+      const answer = window.confirm("Are you sure you want to delete?");
+      if (!answer) return;
+      const { data } = await axios.delete(`/post/${post._id}`);
+      if (data.ok) {
+        setPost((prev) => ({
+          ...prev,
+          posts: prev.posts.filter((p) => p._id !== post._id),
+        }));
+      }
+    } catch (err) {
+      console.log(err);
+    }  };
 
   return (
     <AdminLayout>

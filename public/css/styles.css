@@ -13,9 +13,17 @@
 }
 .ProseMirror{
   padding: 15px 25px;
-  height: 700px;
+  min-height: 700px;
   overflow: scroll;
 }
 .ant-upload-list-item-card-actions {
   display: none;
+}
+
+.ProseMirror::-webkit-scrollbar {
+  display: none;
+}
+.ProseMirror {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
