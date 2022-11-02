@@ -1,11 +1,24 @@
 import { useContext } from "react";
 import axios from "axios";
-import { Row, Col, Card, Typography } from "antd";
+import {
+  Row,
+  Col,
+  Card,
+  Typography,
+  List,
+  Avatar,
+  Divider,
+  Button,
+} from "antd";
 import Head from "next/head";
 import Link from "next/link";
 import dayjs from "dayjs";
 import Editor from "rich-markdown-editor";
 import { ThemeContext } from "../../context/theme";
+import { ShareSocial } from "react-share-social";
+import useCategory from "../../hooks/useCategory";
+import useLatestPosts from "../../hooks/useLatestPosts";
+
 
 const { Title } = Typography;
 
@@ -13,6 +26,10 @@ const { Meta } = Card;
 
 export const SinglePost = ({ post }) => {
   const [theme, setTheme] = useContext(ThemeContext);
+  // hooks
+  const { categories } = useCategory();
+  const { latestPosts } = useLatestPosts();
+
 
   return (
     <>
@@ -27,7 +44,6 @@ export const SinglePost = ({ post }) => {
               <img
                 src={post?.featuredImage?.url || "/images/default.jpeg"}
                 alt={post.title}
-                
               />
             }
           >
@@ -44,6 +60,18 @@ export const SinglePost = ({ post }) => {
               ))}
             </p>
 
+            <div style={{ marginTop: "-20px", marginBottom: "15px" }}>
+              <ShareSocial
+                url={process.browser && window.location.href}
+                socialTypes={["facebook", "twitter", "reddit", "linkedin"]}
+                style={{
+                  height: "100px",
+                  overflow: "hidden",
+                  background: "none",
+                }}
+              />
+            </div>
+
             <Editor
               defaultValue={post.content}
               dark={theme === "light" ? false : true}
@@ -53,18 +81,23 @@ export const SinglePost = ({ post }) => {
         </Col>
 
         <Col xs={22} xl={6} offset={1}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem aut
-          cumque molestias minima blanditiis ipsa ipsum illum, eius quibusdam
-          voluptatum. Deleniti iure corporis temporibus ipsum architecto
-          quibusdam maxime atque illum obcaecati aut, quasi eveniet sapiente.
-          Explicabo minus voluptates fugiat quas esse minima sit soluta, eaque
-          sapiente a, beatae expedita qui necessitatibus animi, debitis
-          molestiae placeat excepturi officia? Dolore sed non esse, facilis
-          dolorum voluptatum aliquid natus laudantium amet numquam consequuntur
-          neque quod repudiandae facere recusandae vitae deleniti minima
-          dolores. Enim voluptates ratione consequatur, voluptatibus hic
-          cupiditate odit exercitationem dolore provident animi iste laboriosam
-          corporis accusantium accusamus expedita ut doloribus! Rem.
+          <Divider>Categories</Divider>
+          {categories.map((c) => (
+            <Link href={`/category/${c.slug}`} key={c._id}>
+              <a>
+                <Button style={{ margin: 2 }}>{c.name}</Button>
+              </a>
+            </Link>
+          ))}
+           <Divider>Latest Posts</Divider>
+          {latestPosts.map((p) => (
+            <Link href={`/post/${p.slug}`} key={p._id}>
+              <a>
+                <h4>{p.title}</h4>
+              </a>
+            </Link>
+          ))}
+          
         </Col>
       </Row>
     </>

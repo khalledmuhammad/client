@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import HomePage from "../components/Pages/HomePage";
 import { AuthContext } from "../context/auth";
 
 function Home() {
@@ -7,10 +8,9 @@ function Home() {
 
   return (
     <div>
-      <h1>Home</h1>
+      <HomePage />
 
       <br />
-      <pre>{JSON.stringify(auth, null, 4)}</pre>
     </div>
   );
 }

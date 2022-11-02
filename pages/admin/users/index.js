@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import AdminLayout from "../../../components/layout/AdminLayout";
-import { Row, Col, List, Avatar } from "antd";
+import { Row, Col, List, Avatar, Input } from "antd";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
@@ -10,6 +10,8 @@ import { AuthContext } from "../../../context/auth";
 export default function AllUsers() {
   // context
   const [auth, setAuth] = useContext(AuthContext);
+  // state
+  const [keyword, setKeyword] = useState("");
   // hook
   const router = useRouter();
   // state
@@ -46,15 +48,26 @@ export default function AllUsers() {
     }
   };
 
+  const filteredUsers = users?.filter((u) =>
+    u.name.toLowerCase().includes(keyword)
+  );
+
   return (
     <AdminLayout>
       <Row>
         <Col span={24}>
           <h4>All Users ({users?.length})</h4>
 
+          <Input
+            placeholder="Search"
+            type="search"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value.toLowerCase())}
+          />
+
           <List
             itemLayout="horizontal"
-            dataSource={users}
+            dataSource={filteredUsers}
             renderItem={(user) => (
               <List.Item
                 actions={[

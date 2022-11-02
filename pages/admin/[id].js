@@ -1,6 +1,6 @@
-import AdminLayout from "../../../components/layout/AdminLayout";
+import AdminLayout from "../../components/layout/AdminLayout";
 
-import ProfileUpdate from "../../../components/user/ProfileUpdate";
+import ProfileUpdate from "../../components/user/ProfileUpdate";
 
 const UpdateUser = () => {
   // show form
