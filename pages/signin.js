@@ -38,13 +38,13 @@ function Signin() {
         localStorage.setItem("auth", JSON.stringify(data));
         toast.success("Successfully signed in");
         // redirect user
-        if (data?.user?.role === "Admin") {
+    /*     if (data?.user?.role === "Admin") {
           router.push("/admin");
         } else if (data?.user?.role === "Author") {
           router.push("/author");
         } else {
           router.push("/subscriber");
-        }
+        } */
         // form.resetFields();
       }
     } catch (err) {
