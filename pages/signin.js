@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
-import { Form, Input, Button, Checkbox, Col, Row } from "antd";
-import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Col, Row } from "antd";
+import {  LockOutlined, MailOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import axios from "axios";
 import { toast } from "react-hot-toast";

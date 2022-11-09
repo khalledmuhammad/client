@@ -5,8 +5,6 @@ import {
   Col,
   Card,
   Typography,
-  List,
-  Avatar,
   Divider,
   Button,
 } from "antd";

@@ -1,5 +1,5 @@
-import { useEffect, useState, useContext } from "react";
-import { Row, Col, Button, List } from "antd";
+import { useEffect, useContext } from "react";
+import { Row, Col, Button } from "antd";
 import AuthorLayout from "../../../components/layout/AuthorLayout";
 import Link from "next/link";
 import { PlusOutlined } from "@ant-design/icons";

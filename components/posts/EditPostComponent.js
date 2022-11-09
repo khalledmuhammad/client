@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { Layout, Row, Col, Input, Select, Modal, Button, Image } from "antd";
+import {  Row, Col, Input, Select, Modal, Button, Image } from "antd";
 import Editor from "rich-markdown-editor";
 import { ThemeContext } from "../../context/theme";
 import axios from "axios";

@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
-import { Image, Menu } from "antd";
+import {  Menu } from "antd";
 import {
-  MailOutlined,
   AppstoreOutlined,
   DatabaseOutlined,
   SettingOutlined,
