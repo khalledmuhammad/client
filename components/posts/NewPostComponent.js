@@ -16,14 +16,14 @@ const { Content, Sider } = Layout;
 function NewPostComponent({ page = "admin" }) {
   // load from local storage
   const savedTitle = () => {
-    if (process.browser) {
+    if (typeof window === 'undefined') {
       if (localStorage.getItem("post-title")) {
         return JSON.parse(localStorage.getItem("post-title"));
       }
     }
   };
   const savedContent = () => {
-    if (process.browser) {
+    if (typeof window === 'undefined') {
       if (localStorage.getItem("post-content")) {
         return JSON.parse(localStorage.getItem("post-content"));
       }
