@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import {  Menu } from "antd";
+import { Menu } from "antd";
 import {
   AppstoreOutlined,
   DatabaseOutlined,
@@ -13,7 +13,6 @@ import Link from "next/link";
 import { AuthContext } from "../context/auth";
 import { useRouter } from "next/router";
 
-const { SubMenu } = Menu;
 
 const TopNav = () => {
   // context
@@ -57,12 +56,16 @@ const TopNav = () => {
       mode="horizontal"
       theme="dark"
     >
-      <Menu.Item key="appitunity" >
+      <Menu.Item key="appitunity">
         <Link href="https://yourappitunity.co.uk/">
-        <img width="140px" style={{padding:10 , cursor:"pointer"}}  src="/images/LOGO.svg" />
+          <img
+            width="140px"
+            style={{ padding: 10, cursor: "pointer" }}
+            src="/images/LOGO.svg"
+          />
         </Link>
-        </Menu.Item>
-     
+      </Menu.Item>
+
       <Menu.Item key="mail" icon={<AppstoreOutlined />}>
         <Link href="/">
           <a>CMS</a>
@@ -96,7 +99,7 @@ const TopNav = () => {
 
       {auth?.user !== null && (
         <>
-          <SubMenu
+          <Menu
             key="SubMenu"
             icon={<SettingOutlined />}
             title={auth?.user?.name || "Dashboard"}
@@ -109,7 +112,7 @@ const TopNav = () => {
                 </Link>
               </Menu.Item>
             </Menu.ItemGroup>
-          </SubMenu>
+          </Menu>
 
           <Menu.Item
             onClick={() => signOut()}
