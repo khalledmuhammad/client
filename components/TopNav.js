@@ -52,7 +52,7 @@ const TopNav = () => {
 
   return (
     <Menu
-      selectedKeys={["mail"]}
+      selectedKeys="mail"
       mode="horizontal"
       theme="dark"
     >
