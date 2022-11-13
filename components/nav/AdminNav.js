@@ -59,7 +59,7 @@ const AdminNav = () => {
         </Menu.Item>
 
         {/* posts */}
-        <Menu.SubMenu key="2" icon={<PushpinOutlined />} title="Posts">
+      {/*   <Menu.SubMenu key="2" icon={<PushpinOutlined />} title="Posts">
           <Menu.Item key="3">
             <Link href="/admin/posts">
               <a className={activeName("/admin/posts")}>All Posts</a>
@@ -75,10 +75,10 @@ const AdminNav = () => {
               <a className={activeName("/admin/categories")}>Categories</a>
             </Link>
           </Menu.Item>
-        </Menu.SubMenu>
+        </Menu.SubMenu> */}
 
         {/* library */}
-        <Menu.SubMenu key="6" icon={<CameraOutlined />} title="Media">
+     {/*    <Menu.SubMenu key="6" icon={<CameraOutlined />} title="Media">
           <Menu.Item key="7">
             <Link href="/admin/media/library">
               <a className={activeName("/admin/media/library")}>Library</a>
@@ -89,17 +89,11 @@ const AdminNav = () => {
               <a className={activeName("/admin/media/new")}>Add New</a>
             </Link>
           </Menu.Item>
-        </Menu.SubMenu>
+        </Menu.SubMenu> */}
 
-        {/* comments */}
-        <Menu.Item key="9" icon={<CommentOutlined />}>
-          <Link href="/admin/comments">
-            <a className={activeName("/admin/comments")}>Comments</a>
-          </Link>
-        </Menu.Item>
 
         {/* users */}
-        <Menu.SubMenu key="10" icon={<UserSwitchOutlined />} title="Users">
+      {/*   <Menu.SubMenu key="10" icon={<UserSwitchOutlined />} title="Users">
           <Menu.Item key="11">
             <Link href="/admin/users">
               <a className={activeName("/admin/users")}>All Users</a>
@@ -110,7 +104,7 @@ const AdminNav = () => {
               <a className={activeName("/admin/users/new")}>Add New</a>
             </Link>
           </Menu.Item>
-        </Menu.SubMenu>
+        </Menu.SubMenu> */}
 
         {/* profile */}
         <Menu.Item key="13" icon={<UserOutlined />}>
@@ -119,12 +113,7 @@ const AdminNav = () => {
           </Link>
         </Menu.Item>
 
-        {/* Customize */}
-        <Menu.Item key="14" icon={<BgColorsOutlined />}>
-          <Link href="/admin/customize">
-            <a className={activeName("/admin/customize")}>Customize</a>
-          </Link>
-        </Menu.Item>
+     
       </Menu>
     </Sider>
   );
