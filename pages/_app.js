@@ -19,9 +19,8 @@ function MyApp({ Component, pageProps }) {
 
       <Toaster />
       <TopNav />
-      <Component {...pageProps} />
-{/*       </MediaProvider>
- */}      </PostProvider>
+      </MediaProvider>
+      </PostProvider>
       </AuthProvider>
     </ThemeProvider>
   );
