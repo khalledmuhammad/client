@@ -52,8 +52,7 @@ const TopNav = () => {
 
   return (
     <Menu
-      onClick={handleClick}
-      selectedKeys={[current]}
+      selectedKeys={["mail"]}
       mode="horizontal"
       theme="dark"
     >
