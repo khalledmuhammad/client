@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
-import {  Menu } from "antd";
+import { Menu } from "antd";
 import {
+  MailOutlined,
   AppstoreOutlined,
   DatabaseOutlined,
   SettingOutlined,
@@ -57,12 +58,6 @@ const TopNav = () => {
       mode="horizontal"
       theme="dark"
     >
-      <Menu.Item key="appitunity" >
-        <Link href="https://yourappitunity.co.uk/">
-        <img width="140px" style={{padding:10 , cursor:"pointer"}}  src="/images/LOGO.svg" />
-        </Link>
-        </Menu.Item>
-     
       <Menu.Item key="mail" icon={<AppstoreOutlined />}>
         <Link href="/">
           <a>CMS</a>
@@ -74,6 +69,12 @@ const TopNav = () => {
           <a>Posts</a>
         </Link>
       </Menu.Item>
+
+      <Menu.Item key="appitunity" >
+        <Link href="https://yourappitunity.co.uk/">
+        <img width="140px" style={{padding:10 , cursor:"pointer"}}  src="/images/LOGO.svg" />
+        </Link>
+        </Menu.Item>
 
       {auth?.user === null && (
         <>
