@@ -52,8 +52,8 @@ function AdminLayout({ children }) {
 
   return (
     <Layout>
-      <AdminNav />
-      <Layout>
+{/*       <AdminNav />
+ */}      <Layout>
         <Content style={{ padding: "10px" }}>{children}</Content>
       </Layout>
     </Layout>
