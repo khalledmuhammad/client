@@ -18,10 +18,14 @@ const TopNav = () => {
   // context
   const [auth, setAuth] = useContext(AuthContext);
   // state
+  const [current, setCurrent] = useState("mail");
   // hooks
   const router = useRouter();
 
-
+  const handleClick = (e) => {
+    console.log("click ", e);
+    setCurrent(e.key);
+  };
 
   const signOut = () => {
     // remove from local storage
@@ -48,6 +52,7 @@ const TopNav = () => {
   return (
     <Menu
       onClick={handleClick}
+      selectedKeys={[current]}
       mode="horizontal"
       theme="dark"
     >
