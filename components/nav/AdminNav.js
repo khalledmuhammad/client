@@ -28,8 +28,8 @@ const AdminNav = () => {
   const onlyWidth = useWindowWidth();
 
   useEffect(() => {
-    process.browser && setCurrent(window.location.pathname);
-  }, [process.browser && window.location.pathname]);
+    typeof window === 'undefined'&& setCurrent(window.location.pathname);
+  }, [typeof window === 'undefined' && window.location.pathname]);
 
   useEffect(() => {
     if (onlyWidth < 800) {
