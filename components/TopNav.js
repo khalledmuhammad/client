@@ -19,14 +19,8 @@ const TopNav = () => {
   // context
   const [auth, setAuth] = useContext(AuthContext);
   // state
-  const [current, setCurrent] = useState("mail");
   // hooks
   const router = useRouter();
-
-  const handleClick = (e) => {
-    console.log("click ", e);
-    setCurrent(e.key);
-  };
 
   const signOut = () => {
     // remove from local storage
@@ -41,9 +35,9 @@ const TopNav = () => {
   };
 
   const roleBasedLink = () => {
-    if (auth?.user?.role === "Admin") {
+    if (auth.user?.role === "Admin") {
       return "/admin";
-    } else if (auth?.user?.role === "Author") {
+    } else if (auth.user?.role === "Author") {
       return "/author";
     } else {
       return "/subscriber";
