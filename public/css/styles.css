@@ -8,9 +8,9 @@
     min-height: 100vh;
 }
 
-.ProseMirror:nth-child(1){
+/* .ProseMirror:nth-child(1){
   display: none;
-}
+} */
 .ProseMirror{
   padding: 15px 25px;
   min-height: 700px;
