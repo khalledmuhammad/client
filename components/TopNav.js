@@ -13,7 +13,6 @@ import Link from "next/link";
 import { AuthContext } from "../context/auth";
 import { useRouter } from "next/router";
 
-const { SubMenu } = Menu;
 
 const TopNav = () => {
   // context
@@ -63,7 +62,7 @@ const TopNav = () => {
         </Link>
         </Menu.Item>
      
-   {/*    <Menu.Item key="mail" icon={<AppstoreOutlined />}>
+      <Menu.Item key="mail" icon={<AppstoreOutlined />}>
         <Link href="/">
           <a>CMS</a>
         </Link>
@@ -73,7 +72,7 @@ const TopNav = () => {
         <Link href="/posts">
           <a>Posts</a>
         </Link>
-      </Menu.Item> */}
+      </Menu.Item>
 
       {auth?.user === null && (
         <>
@@ -96,7 +95,7 @@ const TopNav = () => {
 
       {auth?.user !== null && (
         <>
-          <SubMenu
+          <Menu.SubMenu
             key="SubMenu"
             icon={<SettingOutlined />}
             title={auth?.user?.name || "Dashboard"}
@@ -109,7 +108,7 @@ const TopNav = () => {
                 </Link>
               </Menu.Item>
             </Menu.ItemGroup>
-          </SubMenu>
+          </Menu.SubMenu>
 
           <Menu.Item
             onClick={() => signOut()}
@@ -122,8 +121,8 @@ const TopNav = () => {
       )}
 
       <Menu.Item>
-        <ToggleTheme />
-      </Menu.Item>
+{/*         <ToggleTheme />
+ */}      </Menu.Item>
     </Menu>
   );
 };
