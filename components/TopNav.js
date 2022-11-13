@@ -52,7 +52,6 @@ const TopNav = () => {
 
   return (
     <Menu
-      selectedKeys="mail"
       mode="horizontal"
       theme="dark"
     >
