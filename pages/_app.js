@@ -12,25 +12,18 @@ import  {Toaster} from "react-hot-toast";
 
 function MyApp({ Component, pageProps }) {
   return (
-  /*   <ThemeProvider>
+    <ThemeProvider>
       <AuthProvider>
         <PostProvider>
         <MediaProvider>
 
-      <Toaster />
-      <TopNav />
+{/*       <Toaster />
+ */}      <TopNav />
       <Component {...pageProps} />
       </MediaProvider>
       </PostProvider>
       </AuthProvider>
-    </ThemeProvider> 
-    
-  
-    
-    */
-    <>
-    <h1>My App</h1>
-        </>
+    </ThemeProvider>
   );
 }
 
