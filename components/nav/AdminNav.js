@@ -15,7 +15,6 @@ import {
   CommentOutlined,
 } from "@ant-design/icons";
 
-const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 const AdminNav = () => {
@@ -60,7 +59,7 @@ const AdminNav = () => {
         </Menu.Item>
 
         {/* posts */}
-        <SubMenu key="2" icon={<PushpinOutlined />} title="Posts">
+        <Menu.SubMenu key="2" icon={<PushpinOutlined />} title="Posts">
           <Menu.Item key="3">
             <Link href="/admin/posts">
               <a className={activeName("/admin/posts")}>All Posts</a>
@@ -76,10 +75,10 @@ const AdminNav = () => {
               <a className={activeName("/admin/categories")}>Categories</a>
             </Link>
           </Menu.Item>
-        </SubMenu>
+        </Menu.SubMenu>
 
         {/* library */}
-        <SubMenu key="6" icon={<CameraOutlined />} title="Media">
+        <Menu.SubMenu key="6" icon={<CameraOutlined />} title="Media">
           <Menu.Item key="7">
             <Link href="/admin/media/library">
               <a className={activeName("/admin/media/library")}>Library</a>
@@ -90,7 +89,7 @@ const AdminNav = () => {
               <a className={activeName("/admin/media/new")}>Add New</a>
             </Link>
           </Menu.Item>
-        </SubMenu>
+        </Menu.SubMenu>
 
         {/* comments */}
         <Menu.Item key="9" icon={<CommentOutlined />}>
@@ -100,7 +99,7 @@ const AdminNav = () => {
         </Menu.Item>
 
         {/* users */}
-        <SubMenu key="10" icon={<UserSwitchOutlined />} title="Users">
+        <Menu.SubMenu key="10" icon={<UserSwitchOutlined />} title="Users">
           <Menu.Item key="11">
             <Link href="/admin/users">
               <a className={activeName("/admin/users")}>All Users</a>
@@ -111,7 +110,7 @@ const AdminNav = () => {
               <a className={activeName("/admin/users/new")}>Add New</a>
             </Link>
           </Menu.Item>
-        </SubMenu>
+        </Menu.SubMenu>
 
         {/* profile */}
         <Menu.Item key="13" icon={<UserOutlined />}>
