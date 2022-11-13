@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import {  Menu } from "antd";
 import {
   AppstoreOutlined,
@@ -18,6 +18,8 @@ const { SubMenu } = Menu;
 const TopNav = () => {
   // context
   const [auth, setAuth] = useContext(AuthContext);
+  const [Nav, SetNav] = useState();
+
   // state
   // hooks
   const router = useRouter();
@@ -33,9 +35,15 @@ const TopNav = () => {
     // redirect to login
     router.push("/signin");
   };
-
+  useEffect(() => {
+    
+    SetNav( roleBasedLink())
+    
+  
+   
+  }, [])
   const roleBasedLink = () => {
-    if (auth.user?.role === "Admin") {
+    if (auth?.user?.role === "Admin") {
       return "/admin";
     } else if (auth.user?.role === "Author") {
       return "/author";
@@ -43,6 +51,8 @@ const TopNav = () => {
       return "/subscriber";
     }
   };
+  
+
 
   return (
     <Menu
@@ -91,12 +101,12 @@ const TopNav = () => {
           <SubMenu
             key="SubMenu"
             icon={<SettingOutlined />}
-/*             title={auth.user?.name || "Dashboard"}
- */            style={{ marginLeft: "auto" }}
+            title={auth?.user?.name || "Dashboard"}
+            style={{ marginLeft: "auto" }}
           >
           
               <Menu.Item key="setting:2">
-                <Link href={roleBasedLink()}>
+                <Link href="/admin">
                   <a>Dashboard</a>
                 </Link>
               </Menu.Item>
