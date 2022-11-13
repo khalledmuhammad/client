@@ -41,7 +41,7 @@ const TopNav = () => {
     router.push("/signin");
   };
 
-/*   const roleBasedLink = () => {
+  const roleBasedLink = () => {
     if (auth?.user?.role === "Admin") {
       return "/admin";
     } else if (auth?.user?.role === "Author") {
@@ -49,7 +49,7 @@ const TopNav = () => {
     } else {
       return "/subscriber";
     }
-  }; */
+  };
 
   return (
     <Menu
@@ -76,7 +76,7 @@ const TopNav = () => {
         </Link>
         </Menu.Item>
 
-      {auth?.user === null && (
+    {/*   {auth?.user === null && (
         <>
           <Menu.Item
             style={{ marginLeft: "auto" }}
@@ -103,13 +103,13 @@ const TopNav = () => {
             title={auth?.user?.name || "Dashboard"}
             style={{ marginLeft: "auto" }}
           >
-         {/*    <Menu.ItemGroup title="Management">
+            <Menu.ItemGroup title="Management">
               <Menu.Item key="setting:2">
                 <Link href={roleBasedLink()}>
                   <a>Dashboard</a>
                 </Link>
               </Menu.Item>
-            </Menu.ItemGroup> */}
+            </Menu.ItemGroup>
           </SubMenu>
 
           <Menu.Item
@@ -120,7 +120,7 @@ const TopNav = () => {
             <a>Sign out</a>
           </Menu.Item>
         </>
-      )}
+      )} */}
 
       <Menu.Item>
         <ToggleTheme />
