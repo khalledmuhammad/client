@@ -36,8 +36,20 @@ function AdminLayout({ children }) {
   };
 
   if (loading) {
-    return <h3>loading...</h3>;
+    return (
+      <LoadingOutlined
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          fontSize: "50px",
+          color: "red",
+        }}
+      />
+    );
   }
+
 
   return (
     <Layout>

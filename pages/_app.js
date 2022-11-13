@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }) {
         <MediaProvider>
 
       <Toaster />
-      <TopNav />
       <Component {...pageProps} />
       </MediaProvider>
       </PostProvider>
