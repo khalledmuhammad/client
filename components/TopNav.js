@@ -49,7 +49,7 @@ const TopNav = () => {
       mode="horizontal"
       theme="dark"
     >
-      <Menu.Item key="appitunity" >
+       <Menu.Item key="appitunity" >
         <Link href="https://yourappitunity.co.uk/">
         <img width="140px" style={{padding:10 , cursor:"pointer"}}  src="/images/LOGO.svg" />
         </Link>
@@ -65,9 +65,9 @@ const TopNav = () => {
         <Link href="/posts">
           <a>Posts</a>
         </Link>
-      </Menu.Item>
+      </Menu.Item> 
 
-      {auth?.user === null && (
+      {auth?.user == null && (
         <>
           <Menu.Item
             style={{ marginLeft: "auto" }}
@@ -86,7 +86,7 @@ const TopNav = () => {
         </>
       )}
 
-      {auth?.user !== null && (
+      {auth?.user != null && (
         <>
           <SubMenu
             key="SubMenu"
