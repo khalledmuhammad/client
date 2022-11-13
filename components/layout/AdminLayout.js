@@ -36,24 +36,15 @@ function AdminLayout({ children }) {
   };
 
   if (loading) {
-    return (
-      <LoadingOutlined
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          fontSize: "50px",
-          color: "red",
-        }}
-      />
-    );
+    return <h3>loading...</h3>;
   }
 
   return (
     <Layout>
-{/*       <AdminNav />
- */}        <Content style={{ padding: "10px" }}>{children}</Content>
+      <AdminNav />
+      <Layout>
+        <Content style={{ padding: "10px" }}>{children}</Content>
+      </Layout>
     </Layout>
   );
 }
