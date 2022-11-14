@@ -94,13 +94,11 @@ const TopNav = () => {
             title={auth?.user?.name || "Dashboard"}
             style={{ marginLeft: "auto" }}
           >
-            <Menu.ItemGroup title="Management">
               <Menu.Item key="setting:2">
                 <Link href={roleBasedLink()}>
                   <a>Dashboard</a>
                 </Link>
               </Menu.Item>
-            </Menu.ItemGroup>
           </SubMenu>
 
           <Menu.Item
