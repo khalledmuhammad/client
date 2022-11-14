@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import HomePage from "../components/Pages/HomePage";
+import PostCategory from "../components/Pages/PostCategory";
 import { AuthContext } from "../context/auth";
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
   return (
     <div>
       <HomePage />
+      <PostCategory />
 
       <br />
     </div>
