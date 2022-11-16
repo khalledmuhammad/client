@@ -28,7 +28,7 @@ const SingleCategory = ({ posts, category }) => {
       <div style={{ marginTop: "20px" }}></div>
 
       <Row gutter={12}>
-        <Col sm={24} lg={18} style={{ marginBottom: 12 }}>
+        <Col sm={12} lg={18} style={{ marginBottom: 12 }}>
           <h1 style={{ textAlign: "center" }}>Posts in {category.name}</h1>
 
           {/* posts list */}
@@ -60,7 +60,7 @@ const SingleCategory = ({ posts, category }) => {
           ))}
         </Col>
 
-        <Col xs={24} xl={6}>
+        <Col xs={24} xl={6} style={{ paddingInline:26  }} >
           <Divider>Categories</Divider>
 
           {categories.map((c) => (

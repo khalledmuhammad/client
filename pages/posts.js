@@ -3,6 +3,7 @@ import axios from "axios";
 import { Row, Col, Card, Avatar, Button } from "antd";
 import Head from "next/head";
 import Link from "next/link";
+import PostCategory from "../components/Pages/PostCategory";
 
 const { Meta } = Card;
 
@@ -50,9 +51,14 @@ export const Posts = ({ posts }) => {
         <title>Recent blog posts</title>
         <meta description="Blog posts about web development, programming etc" />
       </Head>
+      <Row>
+        <Col xs={24} >      <PostCategory />
+</Col>
+
+      </Row>
       <Row >
         {allPosts.map((post) => (
-          <Col xs={24} xl={8} style={{ marginTop: 5, marginBottom: 5 , padding:"8px" }}>
+          <Col xs={24} sm={12} xl={8} style={{ marginTop: 5, marginBottom: 5 , padding:"25px" }}>
             <Link href={`/post/${post.slug}`}>
             <a>
                 <Card
