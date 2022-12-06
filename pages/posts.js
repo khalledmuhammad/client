@@ -9,7 +9,7 @@ const { Meta } = Card;
 
 export const Posts = ({ posts }) => {
   // state
-  const [allPosts, setAllPosts] = useState(posts);
+  const [allPosts, setAllPosts] = useState(posts && posts);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
