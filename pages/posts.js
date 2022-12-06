@@ -36,7 +36,7 @@ export const Posts = ({ posts }) => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/posts/${page}`);
+      const { data } = await axios.get(`https://blogs.yourappitunity.co.uk/api/posts/${page}`);
       setAllPosts([...allPosts, ...data]);
       setLoading(false);
     } catch (err) {
