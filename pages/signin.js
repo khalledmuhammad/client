@@ -65,8 +65,8 @@ function Signin() {
           className="login-form"
           initialValues={{
             remember: true,
-            email: "ryan@gmail.com",
-            password: "rrrrrr",
+            email: "",
+            password: "",
           }}
           onFinish={onFinish}
         >
