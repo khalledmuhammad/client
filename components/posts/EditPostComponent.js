@@ -19,6 +19,8 @@ function EditPost({ page = "admin" }) {
   // state
   const [postId, setPostId] = useState("");
   const [title, setTitle] = useState("");
+  const [metaTitle, setmetaTitle] = useState("");
+  const [metaDesc, setmetaDesc] = useState("");
   const [content, setContent] = useState("");
   const [categories, setCategories] = useState([]); // post's existing categories
   const [loadedCategories, setLoadedCategories] = useState([]);
@@ -43,6 +45,9 @@ function EditPost({ page = "admin" }) {
       const { data } = await axios.get(`/post/${router.query.slug}`);
       console.log("GOT POST FOR EDIT", data);
       setTitle(data.title);
+      setmetaTitle(data.metaTitle);
+      setmetaDesc(data.metaDesc);
+
       setContent(data.content);
       setFeaturedImage(data.featuredImage);
       setPostId(data._id);
@@ -70,6 +75,8 @@ function EditPost({ page = "admin" }) {
       setLoading(true);
       const { data } = await axios.put(`/edit-post/${postId}`, {
         title,
+        metaTitle,
+        metaDesc,
         content,
         categories,
         featuredImage: media?.selected?._id
@@ -105,6 +112,28 @@ function EditPost({ page = "admin" }) {
           onChange={(e) => {
             setTitle(e.target.value);
             localStorage.setItem("post-title", JSON.stringify(e.target.value));
+          }}
+        />
+        <br />
+        <br />
+        <Input
+          size="large"
+          value={metaTitle}
+          placeholder="Edit meta title"
+          onChange={(e) => {
+            setmetaTitle(e.target.value);
+            localStorage.setItem("post-metaTitle", JSON.stringify(e.target.value));
+          }}
+        />
+        <br />
+        <br />
+        <Input
+          size="large"
+          value={metaDesc}
+          placeholder="Edit meta desc"
+          onChange={(e) => {
+            setmetaDesc(e.target.value);
+            localStorage.setItem("post-metaDesc", JSON.stringify(e.target.value));
           }}
         />
         <br />

@@ -22,6 +22,22 @@ function NewPostComponent({ page = "admin" }) {
       }
     }
   };
+  const savedmetaTitle = () => {
+    if (process.browser) {
+      if (localStorage.getItem("post-metaTitle")) {
+        return JSON.parse(localStorage.getItem("post-metaTitle"));
+      }
+    }
+  };
+  const savedmetaDescc = () => {
+    if (process.browser) {
+      if (localStorage.getItem("post-metaDesc")) {
+        return JSON.parse(localStorage.getItem("post-metaDesc"));
+      }
+    }
+  };
+
+
   const savedContent = () => {
     if (process.browser) {
       if (localStorage.getItem("post-content")) {
@@ -34,6 +50,8 @@ function NewPostComponent({ page = "admin" }) {
   const [media, setMedia] = useContext(MediaContext);
   // state
   const [title, setTitle] = useState(savedTitle());
+  const [metaTitle, setmetaTitle] = useState(savedmetaTitle());
+  const [metaDesc, setmetaDesc] = useState(savedmetaDescc());
   const [content, setContent] = useState(savedContent());
   const [categories, setCategories] = useState([]);
   const [loadedCategories, setLoadedCategories] = useState([]);
@@ -64,6 +82,8 @@ function NewPostComponent({ page = "admin" }) {
         title,
         content,
         categories,
+        metaDesc,
+        metaTitle,
         featuredImage: media?.selected?._id,
       });
       if (data?.error) {
@@ -73,6 +93,8 @@ function NewPostComponent({ page = "admin" }) {
         // console.log("POST PUBLISHED RES => ", data);
         toast.success("Post created successfully");
         localStorage.removeItem("post-title");
+        localStorage.removeItem("post-metaTitle");
+        localStorage.removeItem("post-metaDesc");
         localStorage.removeItem("post-content");
         setMedia({ ...media, selected: null });
         router.push(`/${page}/posts`);
@@ -95,6 +117,32 @@ function NewPostComponent({ page = "admin" }) {
           onChange={(e) => {
             setTitle(e.target.value);
             localStorage.setItem("post-title", JSON.stringify(e.target.value));
+          }}
+        />
+                <br />
+                <br />
+
+
+        <Input
+          size="large"
+          value={metaTitle}
+          placeholder="Add meta Title"
+          onChange={(e) => {
+            setmetaTitle(e.target.value);
+            localStorage.setItem("post-metaTitle", JSON.stringify(e.target.value));
+          }}
+        />
+                <br />
+                <br />
+
+
+        <Input
+          size="large"
+          value={metaDesc}
+          placeholder="Add meta Description"
+          onChange={(e) => {
+            setmetaDesc(e.target.value);
+            localStorage.setItem("post-metaDesc", JSON.stringify(e.target.value));
           }}
         />
         <br />

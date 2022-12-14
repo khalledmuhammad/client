@@ -32,8 +32,8 @@ export const SinglePost = ({ post }) => {
   return (
     <>
       <Head>
-        <title>{post.title}</title>
-        <meta description={post.content.substring(0, 160)} />
+        <title>{ post.metaTitle ?  post.metaTitle : post.title}</title>
+        <meta description={post.metaDesc ? post.metaDesc : post.content.substring(0, 160)} />
       </Head>
       <Row>
         <Col xs={24} xl={16}>
