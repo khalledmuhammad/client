@@ -78,7 +78,7 @@ export const SinglePost = ({ post }) => {
               readOnly={true}
             />
            {
-            parse(post.Schema && post.Schema)
+          post.Schema ?  parse(post.Schema) : ""
            }
           </Card>
         </Col>
