@@ -16,6 +16,8 @@ import { ThemeContext } from "../../context/theme";
 import { ShareSocial } from "react-share-social";
 import useCategory from "../../hooks/useCategory";
 import useLatestPosts from "../../hooks/useLatestPosts";
+import parse from 'html-react-parser';
+
 
 
 const { Title } = Typography;
@@ -75,6 +77,9 @@ export const SinglePost = ({ post }) => {
               dark={theme === "light" ? false : true}
               readOnly={true}
             />
+           {
+            parse(post.Schema && post.Schema)
+           }
           </Card>
         </Col>
 

@@ -37,6 +37,14 @@ function NewPostComponent({ page = "admin" }) {
     }
   };
 
+  const saveSchema = () => {
+    if (process.browser) {
+      if (localStorage.getItem("post-Schema")) {
+        return JSON.parse(localStorage.getItem("post-Schema"));
+      }
+    }
+  };
+
 
   const savedContent = () => {
     if (process.browser) {
@@ -52,6 +60,8 @@ function NewPostComponent({ page = "admin" }) {
   const [title, setTitle] = useState(savedTitle());
   const [metaTitle, setmetaTitle] = useState(savedmetaTitle());
   const [metaDesc, setmetaDesc] = useState(savedmetaDescc());
+  const [Schema, setSchema] = useState(saveSchema());
+
   const [content, setContent] = useState(savedContent());
   const [categories, setCategories] = useState([]);
   const [loadedCategories, setLoadedCategories] = useState([]);
@@ -84,6 +94,7 @@ function NewPostComponent({ page = "admin" }) {
         categories,
         metaDesc,
         metaTitle,
+        Schema,
         featuredImage: media?.selected?._id,
       });
       if (data?.error) {
@@ -96,6 +107,7 @@ function NewPostComponent({ page = "admin" }) {
         localStorage.removeItem("post-metaTitle");
         localStorage.removeItem("post-metaDesc");
         localStorage.removeItem("post-content");
+        localStorage.removeItem("post-Schema");
         setMedia({ ...media, selected: null });
         router.push(`/${page}/posts`);
       }
@@ -143,6 +155,17 @@ function NewPostComponent({ page = "admin" }) {
           onChange={(e) => {
             setmetaDesc(e.target.value);
             localStorage.setItem("post-metaDesc", JSON.stringify(e.target.value));
+          }}
+        />
+        <br />
+        <br />
+        <Input
+          size="large"
+          value={Schema}
+          placeholder="Add Schema"
+          onChange={(e) => {
+            setSchema(e.target.value);
+            localStorage.setItem("post-Schema", JSON.stringify(e.target.value));
           }}
         />
         <br />

@@ -22,6 +22,8 @@ function EditPost({ page = "admin" }) {
   const [metaTitle, setmetaTitle] = useState("");
   const [metaDesc, setmetaDesc] = useState("");
   const [content, setContent] = useState("");
+  const [Schema, setSchema] = useState("");
+
   const [categories, setCategories] = useState([]); // post's existing categories
   const [loadedCategories, setLoadedCategories] = useState([]);
   const [featuredImage, setFeaturedImage] = useState({});
@@ -47,6 +49,7 @@ function EditPost({ page = "admin" }) {
       setTitle(data.title);
       setmetaTitle(data.metaTitle);
       setmetaDesc(data.metaDesc);
+      setSchema(data.Schema)
 
       setContent(data.content);
       setFeaturedImage(data.featuredImage);
@@ -78,6 +81,7 @@ function EditPost({ page = "admin" }) {
         metaTitle,
         metaDesc,
         content,
+        Schema,
         categories,
         featuredImage: media?.selected?._id
           ? media?.selected?._id
@@ -134,6 +138,18 @@ function EditPost({ page = "admin" }) {
           onChange={(e) => {
             setmetaDesc(e.target.value);
             localStorage.setItem("post-metaDesc", JSON.stringify(e.target.value));
+          }}
+        />
+        <br />
+        <br />
+
+        <Input
+          size="large"
+          value={Schema}
+          placeholder="Edit Schema"
+          onChange={(e) => {
+            setSchema(e.target.value);
+            localStorage.setItem("post-Schema", JSON.stringify(e.target.value));
           }}
         />
         <br />
