@@ -6,6 +6,7 @@ const useCategory = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
+    
     const getCategories = async () => {
       try {
         const { data } = await axios.get("/categories");
